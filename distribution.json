@@ -11,7 +11,7 @@
       "id": "JED-1.16.5",
       "name": "Just Enough Dragons",
       "description": "Just Enough Dragons Modpack",
-      "icon": "https://raw.githubusercontent.com/NhSoul/JustEnoughDragons/master/icon.png",
+      "icon": null,
       "version": "1.8.9",
       "address": "play.nhsoul.fr:25551",
       "minecraftVersion": "1.16.5",
@@ -24,44 +24,44 @@
       "autoconnect": true,
       "modules": [
         {
-          "id": "net.minecraftforge:forge:1.16.5-36.0.1",
+          "id": "net.minecraftforge:forge:1.16.5-36.1.10",
           "name": "Minecraft Forge (base jar)",
           "type": "ForgeHosted",
           "artifact": {
-            "size": 210679,
-            "MD5": "eb630b29b945f5c5f878592b838fca21",
-            "url": "https://raw.githubusercontent.com/NhSoul/Launcher/master/repo/lib/net/minecraftforge/forge/1.16.5-36.0.1/forge-1.16.5-36.0.1.jar"
+            "size": 210524,
+            "MD5": "504da8b19cdb46f116e1f26774e551c4",
+            "url": "https://raw.githubusercontent.com/NhSoul/Launcher/master/repo/lib/net/minecraftforge/forge/1.16.5-36.1.10/forge-1.16.5-36.1.10.jar"
           },
           "subModules": [
             {
-              "id": "1.16.5-36.0.1",
+              "id": "1.16.5-36.1.10",
               "name": "Minecraft Forge (version.json)",
               "type": "VersionManifest",
               "artifact": {
-                "size": 12883,
-                "MD5": "1ac01909add69e6177b428f4aa54cd7f",
-                "url": "https://raw.githubusercontent.com/NhSoul/Launcher/master/repo/versions/1.16.5-forge-36.0.1/1.16.5-forge-36.0.1.json"
+                "size": 12754,
+                "MD5": "6400b4e5b46bdc9fd4753ea2dd71d4d4",
+                "url": "https://raw.githubusercontent.com/NhSoul/Launcher/master/repo/versions/1.16.5-forge-36.1.10/1.16.5-forge-36.1.10.json"
               }
             },
             {
-              "id": "net.minecraftforge:forge:1.16.5-36.0.1:universal",
+              "id": "net.minecraftforge:forge:1.16.5-36.1.10:universal",
               "name": "Minecraft Forge (universal jar)",
               "type": "Library",
               "artifact": {
-                "size": 2344292,
-                "MD5": "158ca010ee01489a6b1ae5b4f367d309",
-                "url": "https://raw.githubusercontent.com/NhSoul/Launcher/master/repo/lib/net/minecraftforge/forge/1.16.5-36.0.1/forge-1.16.5-36.0.1-universal.jar"
+                "size": 2418292,
+                "MD5": "6f300ac234287a2dea38041e3d90c8fc",
+                "url": "https://raw.githubusercontent.com/NhSoul/Launcher/master/repo/lib/net/minecraftforge/forge/1.16.5-36.1.10/forge-1.16.5-36.1.10-universal.jar"
               },
               "subModules": []
             },
             {
-              "id": "net.minecraftforge:forge:1.16.5-36.0.1:client",
+              "id": "net.minecraftforge:forge:1.16.5-36.1.10:client",
               "name": "Minecraft Forge (client jar)",
               "type": "Library",
               "artifact": {
-                "size": 4071979,
-                "MD5": "c4e02d582fab4f5612ba1a7d99eea592",
-                "url": "https://raw.githubusercontent.com/NhSoul/Launcher/master/repo/lib/net/minecraftforge/forge/1.16.5-36.0.1/forge-1.16.5-36.0.1-client.jar"
+                "size": 4144813,
+                "MD5": "f4d0245060d974774956785bf5a08323",
+                "url": "https://raw.githubusercontent.com/NhSoul/Launcher/master/repo/lib/net/minecraftforge/forge/1.16.5-36.1.10/forge-1.16.5-36.1.10-client.jar"
               },
               "subModules": []
             },
@@ -71,7 +71,7 @@
               "type": "Library",
               "artifact": {
                 "size": 11352644,
-                "MD5": "15fe871d276455712e0d7c859a654c99",
+                "MD5": "737e28e40d6b8ce5f0fb94729350bd10",
                 "url": "https://raw.githubusercontent.com/NhSoul/Launcher/master/repo/lib/net/minecraft/client/1.16.5-20210115.111550/client-1.16.5-20210115.111550-srg.jar"
               },
               "subModules": []
@@ -159,13 +159,13 @@
               }
             },
             {
-              "id": "cpw.mods:grossjava9hacks:1.3.0",
+              "id": "cpw.mods:grossjava9hacks:1.3.3",
               "name": "Minecraft Forge (grossjava9hacks)",
               "type": "Library",
               "artifact": {
-                "size": 1921,
-                "MD5": "c5c05d52fcef5479e0ea069f30c6ceb5",
-                "url": "https://raw.githubusercontent.com/NhSoul/Launcher/master/repo/lib/cpw/mods/grossjava9hacks/1.3.0/grossjava9hacks-1.3.0.jar"
+                "size": 2113,
+                "MD5": "d19b487241008d8e6111137a289ea1d7",
+                "url": "https://raw.githubusercontent.com/NhSoul/Launcher/master/repo/lib/cpw/mods/grossjava9hacks/1.3.3/grossjava9hacks-1.3.3.jar"
               }
             },
             {
@@ -209,13 +209,13 @@
               }
             },
             {
-              "id": "net.minecraftforge:coremods:4.0.3",
+              "id": "net.minecraftforge:coremods:4.0.6",
               "name": "Minecraft Forge (coremods)",
               "type": "Library",
               "artifact": {
-                "size": 25448,
-                "MD5": "b6b7ea171ec27fc5015bb5e3b79b696a",
-                "url": "https://raw.githubusercontent.com/NhSoul/Launcher/master/repo/lib/net/minecraftforge/coremods/4.0.3/coremods-4.0.3.jar"
+                "size": 25453,
+                "MD5": "e56551f2586d3ff08beb24f5ea44a7d3",
+                "url": "https://raw.githubusercontent.com/NhSoul/Launcher/master/repo/lib/net/minecraftforge/coremods/4.0.6/coremods-4.0.6.jar"
               }
             },
             {
@@ -229,23 +229,23 @@
               }
             },
             {
-              "id": "com.electronwill.night-config:core:3.6.2",
+              "id": "com.electronwill.night-config:core:3.6.3",
               "name": "Minecraft Forge (core)",
               "type": "Library",
               "artifact": {
                 "size": 199091,
-                "MD5": "243fc0b7f1e509aaca3550c14d8f60af",
-                "url": "https://raw.githubusercontent.com/NhSoul/Launcher/master/repo/lib/com/electronwill/night-config/core/3.6.2/core-3.6.2.jar"
+                "MD5": "093b0ca357d3f8b922170b8d7f43948c",
+                "url": "https://raw.githubusercontent.com/NhSoul/Launcher/master/repo/lib/com/electronwill/night-config/core/3.6.3/core-3.6.3.jar"
               }
             },
             {
-              "id": "com.electronwill.night-config:toml:3.6.2",
+              "id": "com.electronwill.night-config:toml:3.6.3",
               "name": "Minecraft Forge (toml)",
               "type": "Library",
               "artifact": {
-                "size": 31152,
-                "MD5": "7b2339065e252b1c187d39351d84a09f",
-                "url": "https://raw.githubusercontent.com/NhSoul/Launcher/master/repo/lib/com/electronwill/night-config/toml/3.6.2/toml-3.6.2.jar"
+                "size": 31288,
+                "MD5": "615b8e62371c536f876764591990118d",
+                "url": "https://raw.githubusercontent.com/NhSoul/Launcher/master/repo/lib/com/electronwill/night-config/toml/3.6.3/toml-3.6.3.jar"
               }
             },
             {
@@ -259,13 +259,13 @@
               }
             },
             {
-              "id": "org.apache.maven:maven-artifact:3.6.0",
+              "id": "org.apache.maven:maven-artifact:3.6.3",
               "name": "Minecraft Forge (maven-artifact)",
               "type": "Library",
               "artifact": {
-                "size": 55051,
-                "MD5": "89e95013b11f347e48c0525965600404",
-                "url": "https://raw.githubusercontent.com/NhSoul/Launcher/master/repo/lib/org/apache/maven/maven-artifact/3.6.0/maven-artifact-3.6.0.jar"
+                "size": 57824,
+                "MD5": "b83c1943a0783f3f81d4cd4c83c363e1",
+                "url": "https://raw.githubusercontent.com/NhSoul/Launcher/master/repo/lib/org/apache/maven/maven-artifact/3.6.3/maven-artifact-3.6.3.jar"
               }
             },
             {
@@ -329,25 +329,25 @@
               }
             },
             {
-              "id": "net.minecraftforge:nashorn-core-compat:15.1.1",
+              "id": "net.minecraftforge:nashorn-core-compat:15.1.1.1",
               "name": "Minecraft Forge (nashorn-core-compat)",
               "type": "Library",
               "artifact": {
-                "size": 2194053,
-                "MD5": "975e4d1fe19775355426e302a21b11fd",
-                "url": "https://raw.githubusercontent.com/NhSoul/Launcher/master/repo/lib/net/minecraftforge/nashorn-core-compat/15.1.1/nashorn-core-compat-15.1.1.jar"
+                "size": 2194057,
+                "MD5": "ae37ed8407982eefc9f85fdb1c95a3a0",
+                "url": "https://raw.githubusercontent.com/NhSoul/Launcher/master/repo/lib/net/minecraftforge/nashorn-core-compat/15.1.1.1/nashorn-core-compat-15.1.1.1.jar"
               }
             }
           ]
         },
         {
-          "id": "net.optifine:optifine:1.16.5_HD_U_G6@jar",
+          "id": "net.optifine:optifine:1.16.5_HD_U_G8@jar",
           "name": "OptiFine",
           "type": "ForgeMod",
           "artifact": {
-            "size": 5835761,
-            "url": "https://raw.githubusercontent.com/NhSoul/Launcher/master/servers/JED-1.16.5/forgemods/optionalon/OptiFine_1.16.5_HD_U_G6.jar",
-            "MD5": "4a13bb8132744ab7beeff9f076d48125"
+            "size": 6046996,
+            "url": "https://raw.githubusercontent.com/NhSoul/Launcher/master/servers/JED-1.16.5/forgemods/optionalon/OptiFine_1.16.5_HD_U_G8.jar",
+            "MD5": "e0717ba6d1674af83036ebc479fc77b4"
           },
           "required": {
             "value": false
@@ -607,14 +607,14 @@
           }
         },
         {
-          "id": "appliedenergistics2-8.2.0.jar",
-          "name": "appliedenergistics2-8.2.0.jar",
+          "id": "appliedenergistics2-8.4.0.jar",
+          "name": "appliedenergistics2-8.4.0.jar",
           "type": "File",
           "artifact": {
-            "size": 4560789,
-            "url": "https://raw.githubusercontent.com/NhSoul/Launcher/master/servers/JED-1.16.5/files/mods/appliedenergistics2-8.2.0.jar",
-            "MD5": "0620aa0db52c8a5c6cdc041c119d9320",
-            "path": "mods/appliedenergistics2-8.2.0.jar"
+            "size": 4818007,
+            "url": "https://raw.githubusercontent.com/NhSoul/Launcher/master/servers/JED-1.16.5/files/mods/appliedenergistics2-8.4.0.jar",
+            "MD5": "f82920f237184d39d6f29760e2f8445d",
+            "path": "mods/appliedenergistics2-8.4.0.jar"
           }
         },
         {
