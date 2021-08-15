@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/" version="2.0">
+  <channel>
+    <generator>none</generator>
+    <title>NhSoul</title>
+    <link>https://nhsoul.fr</link>
+    <description>They are the NhSoul's news feed</description>
+    <language>fr</language>
+    <webMaster>contact@nhsoul.fr</webMaster>
+    <item>
+      <title>Les news sont a présent disponibles ici :)</title>
+      <pubDate>Wed, 29 Jul 2020 00:00:00</pubDate>
+      <link>https://nhsoul.fr</link>
+      <dc:creator>
+      <![CDATA[ @NhPro ]]>
+      </dc:creator>
+      <author>contact@nhsoul.fr</author>
+      <category>News</category>
+      <description><![CDATA[Les news sont a présent disponibles sur le launcher :)]]></description>
+    </item>
+  </channel>
+
+  <channel>
+    <generator>none</generator>
+    <title>NhSoul</title>
+    <link>https://nhsoul.fr</link>
+    <description>They are the NhSoul's news feed</description>
+    <language>fr</language>
+    <webMaster>contact@nhsoul.fr</webMaster>
+    <item>
+      <title>Le launcher n'a plus de problèmes avec les comptes cracks :)</title>
+      <pubDate>Sat, 28 Nov 2020 12:00:00</pubDate>
+      <link>https://nhsoul.fr</link>
+      <dc:creator>
+      <![CDATA[ @NhPro ]]>
+      </dc:creator>
+      <author>contact@nhsoul.fr</author>
+      <category>News</category>
+      <description><![CDATA[Le launcher n'a plus de problèmes avec les comptes cracks :)]]></description>
+    </item>
+  </channel>
+</rss>
