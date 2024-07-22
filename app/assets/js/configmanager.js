@@ -7,7 +7,7 @@ const logger = LoggerUtil.getLogger('ConfigManager')
 
 const sysRoot = process.env.APPDATA || (process.platform == 'darwin' ? process.env.HOME + '/Library/Application Support' : process.env.HOME)
 
-const dataPath = path.join(sysRoot, '.helioslauncher')
+const dataPath = path.join(sysRoot, '.nhsoul')
 
 const launcherDir = require('@electron/remote').app.getPath('userData')
 
@@ -341,6 +341,18 @@ exports.addMojangAuthAccount = function(uuid, accessToken, username, displayName
     config.selectedAccount = uuid
     config.authenticationDatabase[uuid] = {
         type: 'mojang',
+        accessToken,
+        username: username.trim(),
+        uuid: uuid.trim(),
+        displayName: displayName.trim()
+    }
+    return config.authenticationDatabase[uuid]
+}
+
+exports.addCrackedAuthAccount = function(uuid, accessToken, username, displayName){
+    config.selectedAccount = uuid
+    config.authenticationDatabase[uuid] = {
+        type: 'cracked',
         accessToken,
         username: username.trim(),
         uuid: uuid.trim(),

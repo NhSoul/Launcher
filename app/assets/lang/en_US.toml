@@ -34,10 +34,27 @@ loginNeedAccountText = "Need an Account?"
 loginPasswordDisclaimer1 = "Your password is sent directly to mojang and never stored."
 loginPasswordDisclaimer2 = "{appName} is not affiliated with Mojang AB."
 
+[ejs.loginCracked]
+loginCancelText = "Cancel"
+loginSubheader = "MINECRAFT LOGIN"
+loginEmailError = "* Invalid Value"
+loginEmailPlaceholder = "EMAIL OR USERNAME"
+loginPasswordError = "* Required"
+loginPasswordPlaceholder = "PASSWORD"
+loginForgotPasswordLink = "https://minecraft.net/password/forgot/"
+loginForgotPasswordText = "forgot password?"
+loginRememberMeText = "remember me?"
+loginButtonText = "LOGIN"
+loginNeedAccountLink = "https://minecraft.net/store/minecraft-java-edition/"
+loginNeedAccountText = "Need an Account?"
+loginPasswordDisclaimer1 = "Your password is sent directly to mojang and never stored."
+loginPasswordDisclaimer2 = "{appName} is not affiliated with Mojang AB."
+
 [ejs.loginOptions]
 loginOptionsTitle = "Login Options"
 loginWithMicrosoft = "Login with Microsoft"
 loginWithMojang = "Login with Mojang"
+loginWithCracked = "Login with Cracked"
 cancelButton = "Cancel"
 
 [ejs.overlay]
@@ -65,6 +82,8 @@ addMicrosoftAccount = "+ Add Microsoft Account"
 mojangAccount = "Mojang"
 addMojangAccount = "+ Add Mojang Account"
 minecraftTabHeaderText = "Minecraft Settings"
+crackedAccount = "Cracked"
+addCrackedAccount = "+ Add Cracked Account"
 minecraftTabHeaderDesc = "Options related to game launch."
 gameResolutionTitle = "Game Resolution"
 launchFullscreenTitle = "Launch in fullscreen."
@@ -149,6 +168,20 @@ invalidValue = "* Invalid Value"
 requiredValue = "* Required"
 
 [js.login.error.unknown]
+title = "Unknown Error During Login"
+desc = "An unknown error has occurred. Please see the console for details."
+
+[js.loginCracked]
+login = "LOGIN"
+loggingIn = "LOGGING IN"
+success = "SUCCESS"
+tryAgain = "Try Again"
+
+[js.loginCracked.error]
+invalidValue = "* Invalid Value"
+requiredValue = "* Required"
+
+[js.loginCracked.error.unknown]
 title = "Unknown Error During Login"
 desc = "An unknown error has occurred. Please see the console for details."
 

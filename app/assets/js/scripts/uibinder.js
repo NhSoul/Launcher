@@ -18,6 +18,7 @@ const VIEWS = {
     landing: '#landingContainer',
     loginOptions: '#loginOptionsContainer',
     login: '#loginContainer',
+    loginCracked: '#loginCrackedContainer',
     settings: '#settingsContainer',
     welcome: '#welcomeContainer',
     waiting: '#waitingContainer'
@@ -342,14 +343,20 @@ async function validateSelectedAccount(){
             setOverlayHandler(() => {
 
                 const isMicrosoft = selectedAcc.type === 'microsoft'
+                const isMojang = selectedAcc.type === 'mojang'
 
                 if(isMicrosoft) {
                     // Empty for now
-                } else {
+                } else if(isMojang){
                     // Mojang
                     // For convenience, pre-populate the username of the account.
                     document.getElementById('loginUsername').value = selectedAcc.username
                     validateEmail(selectedAcc.username)
+                } else {
+                    // Cracked
+                    // For convenience, pre-populate the username of the account.
+                    document.getElementById('loginUsername').value = selectedAcc.username
+                    validateEmailCracked(selectedAcc.username)
                 }
                 
                 loginOptionsViewOnLoginSuccess = getCurrentView()

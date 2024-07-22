@@ -388,7 +388,25 @@ body, button {
     background: rgba(0, 0, 0, 0.50);
 }
 
+#loginCrackedContainer {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    transition: filter 0.25s ease;
+    background: rgba(0, 0, 0, 0.50);
+}
+
 /* Login cancel button styles. */
+#loginCancelContainer {
+    position: absolute;
+    top: 5%;
+    right: 5%;
+}
+
+/* Login Cracked cancel button styles. */
 #loginCancelContainer {
     position: absolute;
     top: 5%;
@@ -427,6 +445,42 @@ body, button {
 }
 #loginCancelButton:disabled #loginCancelIcon,
 #loginCancelButton:disabled #loginCancelText {
+    color: rgba(255, 255, 255, 0.75);
+    border-color: rgba(255, 255, 255, 0.75);
+}
+
+/* Login Cracked cancel button styles. */
+#loginCancelButtonCracked {
+    background: none;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    transition: 0.25s ease;
+}
+#loginCancelButtonCracked:hover #loginCancelIcon,
+#loginCancelButtonCracked:hover #loginCancelText,
+#loginCancelButtonCracked:focus #loginCancelIcon,
+#loginCancelButtonCracked:focus #loginCancelText {
+    text-shadow: 0px 0px 20px white;
+}
+#loginCancelButtonCracked:hover #loginCancelIcon,
+#loginCancelButtonCracked:focus #loginCancelIcon {
+    box-shadow: 0px 0px 20px white;
+}
+#loginCancelButtonCracked:active #loginCancelIcon,
+#loginCancelButtonCracked:active #loginCancelText {
+    text-shadow: 0px 0px 20px rgba(255, 255, 255, 0.75);
+    color: rgba(255, 255, 255, 0.75);
+    border-color: rgba(255, 255, 255, 0.75);
+}
+#loginCancelButtonCracked:active #loginCancelIcon {
+    box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.75);
+}
+#loginCancelButtonCracked:disabled {
+    pointer-events: none;
+}
+#loginCancelButtonCracked:disabled #loginCancelIcon,
+#loginCancelButtonCracked:disabled #loginCancelText {
     color: rgba(255, 255, 255, 0.75);
     border-color: rgba(255, 255, 255, 0.75);
 }
@@ -481,6 +535,31 @@ body, button {
     outline: none;
 }
 #loginForm a:active {
+    color: #8b8b8b;
+}
+
+/* Login Cracked form. */
+#loginFormCracked {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Login form anchor styles. */
+#loginFormCracked a {
+    font-size: 12px;
+    color: #848484;
+    font-weight: bold;
+    text-decoration: none;
+    transition: 0.25s ease;
+}
+#loginFormCracked a:hover,
+#loginFormCracked a:focus {
+    color: #a2a2a2;
+    outline: none;
+}
+#loginFormCracked a:active {
     color: #8b8b8b;
 }
 
@@ -637,6 +716,37 @@ body, button {
     color: #c7c7c7;
     text-shadow:  0px 0px 20px #c7c7c7;
 }
+
+/* Login Cracked button styles. */
+#loginButtonCracked {
+    background: none;
+    font-weight: bold;
+    letter-spacing: 2px;
+    border: none;
+    padding: 15px 5px;
+    margin: 10px 0px;
+    cursor: pointer;
+    position: relative;
+    right: -20px;
+    transition: 0.5s ease;
+}
+#loginButtonCracked:disabled {
+    color: rgba(255, 255, 255, 0.75);
+    pointer-events: none;
+}
+#loginButtonCracked[loading] {
+    color: #fff;
+}
+#loginButtonCracked:hover,
+#loginButtonCracked:focus {
+    text-shadow: 0px 0px 20px #fff;
+    outline: none;
+}
+#loginButtonCracked:active {
+    color: #c7c7c7;
+    text-shadow:  0px 0px 20px #c7c7c7;
+}
+
 #loginSVG {
     -webkit-transform: translate3d(0, 0, 0);
     overflow: visible;
@@ -671,6 +781,29 @@ body, button {
 }
 #loginButton[loading] .circle-loader,
 #loginButton #loginSVG {
+    display: initial;
+}
+
+#loginButtonCracked:hover #loginSVG,
+#loginButtonCracked:focus #loginSVG {
+    -webkit-filter: drop-shadow(0px 0px 2px #fff);
+}
+#loginButtonCracked:active #loginSVG .arrowLine {
+    stroke: #c7c7c7;
+}
+#loginButtonCracked:active #loginSVG {
+    -webkit-filter: drop-shadow(0px 0px 2px #c7c7c7);
+}
+#loginButtonCracked:disabled #loginSVG .arrowLine {
+    stroke: rgba(255, 255, 255, 0.75);
+}
+
+#loginButtonCracked .circle-loader,
+#loginButtonCracked[loading] #loginSVG {
+    display: none;
+}
+#loginButtonCracked[loading] .circle-loader,
+#loginButtonCracked #loginSVG {
     display: initial;
 }
 
@@ -807,8 +940,26 @@ body, button {
     -webkit-user-select: none;
 }
 
+/* Checkbox Cracked container. */
+#checkmarkContainerCracked {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    position: relative;
+    cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+}
+
 /* Hide the default checkbox. */
 #checkmarkContainer input {
+    opacity: 0;
+    cursor: pointer;
+    position: absolute;
+}
+
+/* Hide the default checkbox. */
+#checkmarkContainerCracked input {
     opacity: 0;
     cursor: pointer;
     position: absolute;
@@ -838,6 +989,22 @@ body, button {
 #checkmarkContainer[disabled] {
     pointer-events: none;
 }
+
+/* On hover and focus, add a grey border color. Cracked*/
+#checkmarkContainerCracked:hover input ~ *,
+#checkmarkContainerCracked input:focus ~ * {
+    color: #a2a2a2;
+    border-color: #a2a2a2;
+}
+/* On keydown, darken the checkbox a bit. Cracked*/
+#checkmarkContainerCracked input:active ~ *:not(#loginRememberText) {
+    color: #8d8d8d;
+    border-color: #8d8d8d;
+}
+#checkmarkContainerCracked[disabled] {
+    pointer-events: none;
+}
+
 /* For checked -> #checkmarkContainer input:checked ~ * */
 /* Create the checkmark/indicator (hidden when not checked). */
 .loginCheckmark:after {
@@ -850,6 +1017,22 @@ body, button {
 }
 /* Style the checkmark/indicator. */
 #checkmarkContainer .loginCheckmark:after {
+    position: absolute;
+    left: 3.5px;
+    top: 0.5px;
+    width: 2px;
+    height: 6px;
+    border: solid #a2a2a2;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+
+/* Show the checkmark when checked. Cracked*/
+#checkmarkContainerCracked input:checked ~ .loginCheckmark:after {
+    display: block;
+}
+/* Style the checkmark/indicator. Cracked*/
+#checkmarkContainerCracked .loginCheckmark:after {
     position: absolute;
     left: 3.5px;
     top: 0.5px;
@@ -3909,6 +4092,28 @@ input:checked + .toggleSwitchSlider:before {
  * Loading Element (app.ejs)                                                   *
  *                                                                             *
  ******************************************************************************/
+
+/* Download container, placed above everything. */
+#downloadContainer {
+    position: absolute;
+    z-index: 400;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    width: 100%;
+    height: calc(100% - 22px);
+}
+
+/* Download text container, placed above everything. */
+#textdownloadContainer {
+    position: absolute;
+    z-index: 400;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    width: 100%;
+    height: calc(100% - 22px);
+}
 
 /* Loading container, placed above everything. */
 #loadingContainer {

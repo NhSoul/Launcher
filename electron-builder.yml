@@ -1,8 +1,8 @@
-appId: 'helioslauncher'
-productName: 'Helios Launcher'
+appId: 'nhsoul-launcher'
+productName: 'NhSoul'
 artifactName: '${productName}-setup-${version}.${ext}'
 
-copyright: 'Copyright © 2018-2024 Daniel Scalzi'
+copyright: 'Copyright © 2018-2024 NhPro'
 
 asar: true
 compression: 'maximum'
@@ -37,12 +37,12 @@ mac:
   category: 'public.app-category.games'
 
 # Linux Configuration
-linux: 
+linux:
   target: 'AppImage'
-  maintainer: 'Daniel Scalzi'
-  vendor: 'Daniel Scalzi'
-  synopsis: 'Modded Minecraft Launcher'
-  description: 'Custom launcher which allows users to join modded servers. All mods, configurations, and updates are handled automatically.'
+  maintainer: 'NhPro'
+  vendor: 'NhPro'
+  synopsis: 'It is the NhSoul launcher.'
+  description: 'It is the NhSoul launcher.'
   category: 'Game'
 
 

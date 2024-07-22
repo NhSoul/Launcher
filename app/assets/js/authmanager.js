@@ -16,6 +16,8 @@ const { MojangRestAPI, MojangErrorCode } = require('helios-core/mojang')
 const { MicrosoftAuth, MicrosoftErrorCode } = require('helios-core/microsoft')
 const { AZURE_CLIENT_ID }    = require('./ipcconstants')
 const Lang = require('./langloader')
+const {v3: uuidv3}  = require('uuid')
+const {machineIdSync} = require('node-machine-id')
 
 const log = LoggerUtil.getLogger('AuthManager')
 
@@ -167,6 +169,15 @@ exports.addMojangAccount = async function(username, password) {
     }
 }
 
+exports.addCrackedAccount = async function(username) {
+    const ret = ConfigManager.addCrackedAuthAccount(uuidv3(username + machineIdSync(), uuidv3.DNS), 'pisslow', username, username)
+    if (ConfigManager.getClientToken() == null) {
+        ConfigManager.setClientToken('ImCraked')
+    }
+    ConfigManager.save()
+    return ret
+}
+
 const AUTH_MODE = { FULL: 0, MS_REFRESH: 1, MC_REFRESH: 2 }
 
 /**
@@ -291,6 +302,17 @@ exports.removeMojangAccount = async function(uuid){
     }
 }
 
+exports.removeCrackedAccount = async function(uuid){
+    try {
+        ConfigManager.removeAuthAccount(uuid)
+        ConfigManager.save()
+        return Promise.resolve()
+    } catch (err){
+        log.error('Error while removing account', err)
+        return Promise.reject(err)
+    }
+}
+
 /**
  * Remove a Microsoft account. It is expected that the caller will invoke the OAuth logout
  * through the ipc renderer.
@@ -342,6 +364,11 @@ async function validateSelectedMojangAccount(){
         }
     }
     
+}
+
+async function validateSelectedCrackedAccount(){
+    return true
+
 }
 
 /**
@@ -418,8 +445,10 @@ exports.validateSelected = async function(){
 
     if(current.type === 'microsoft') {
         return await validateSelectedMicrosoftAccount()
-    } else {
+    } else if (current.type === 'mojang'){
         return await validateSelectedMojangAccount()
+    } else {
+        return await validateSelectedCrackedAccount()
     }
     
 }

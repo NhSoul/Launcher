@@ -351,6 +351,14 @@ document.getElementById('settingsAddMojangAccount').onclick = (e) => {
     })
 }
 
+document.getElementById('settingsAddCrackedAccount').onclick = (e) => {
+    switchView(getCurrentView(), VIEWS.loginCracked, 500, 500, () => {
+        loginViewOnCancelCracked = VIEWS.settings
+        loginViewOnSuccessCracked = VIEWS.settings
+        loginCancelEnabledCracked(true)
+    })
+}
+
 // Bind the add microsoft account button.
 document.getElementById('settingsAddMicrosoftAccount').onclick = (e) => {
     switchView(getCurrentView(), VIEWS.waiting, 500, 500, () => {
@@ -518,8 +526,26 @@ function processLogOut(val, isLastAccount){
         switchView(getCurrentView(), VIEWS.waiting, 500, 500, () => {
             ipcRenderer.send(MSFT_OPCODE.OPEN_LOGOUT, uuid, isLastAccount)
         })
-    } else {
+    } else if(targetAcc.type === 'mojang'){
         AuthManager.removeMojangAccount(uuid).then(() => {
+            if(!isLastAccount && uuid === prevSelAcc.uuid){
+                const selAcc = ConfigManager.getSelectedAccount()
+                refreshAuthAccountSelected(selAcc.uuid)
+                updateSelectedAccount(selAcc)
+                validateSelectedAccount()
+            }
+            if(isLastAccount) {
+                loginOptionsCancelEnabled(false)
+                loginOptionsViewOnLoginSuccess = VIEWS.settings
+                loginOptionsViewOnLoginCancel = VIEWS.loginOptions
+                switchView(getCurrentView(), VIEWS.loginOptions)
+            }
+        })
+        $(parent).fadeOut(250, () => {
+            parent.remove()
+        })
+    } else {
+        AuthManager.removeCrackedAccount(uuid).then(() => {
             if(!isLastAccount && uuid === prevSelAcc.uuid){
                 const selAcc = ConfigManager.getSelectedAccount()
                 refreshAuthAccountSelected(selAcc.uuid)
@@ -620,6 +646,7 @@ function refreshAuthAccountSelected(uuid){
 
 const settingsCurrentMicrosoftAccounts = document.getElementById('settingsCurrentMicrosoftAccounts')
 const settingsCurrentMojangAccounts = document.getElementById('settingsCurrentMojangAccounts')
+const settingsCurrentCrackedAccounts = document.getElementById('settingsCurrentCrackedAccounts')
 
 /**
  * Add auth account elements for each one stored in the authentication database.
@@ -634,6 +661,7 @@ function populateAuthAccounts(){
 
     let microsoftAuthAccountStr = ''
     let mojangAuthAccountStr = ''
+    let crackedAuthAccountStr = ''
 
     authKeys.forEach((val) => {
         const acc = authAccounts[val]
@@ -664,14 +692,17 @@ function populateAuthAccounts(){
 
         if(acc.type === 'microsoft') {
             microsoftAuthAccountStr += accHtml
-        } else {
+        } else if(acc.type === 'mojang') {
             mojangAuthAccountStr += accHtml
+        } else {
+            crackedAuthAccountStr += accHtml
         }
 
     })
 
     settingsCurrentMicrosoftAccounts.innerHTML = microsoftAuthAccountStr
     settingsCurrentMojangAccounts.innerHTML = mojangAuthAccountStr
+    settingsCurrentCrackedAccounts.innerHTML = crackedAuthAccountStr
 }
 
 /**
@@ -1453,7 +1484,7 @@ function populateAboutVersionInformation(){
  */
 function populateReleaseNotes(){
     $.ajax({
-        url: 'https://github.com/dscalzi/HeliosLauncher/releases.atom',
+        url: 'https://mc.nhsoul.fr/launcher/news.xml',
         success: (data) => {
             const version = 'v' + remote.app.getVersion()
             const entries = $(data).find('entry')

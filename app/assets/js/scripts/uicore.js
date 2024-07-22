@@ -47,9 +47,10 @@ if(!isDev){
                 break
             case 'update-available':
                 loggerAutoUpdater.info('New update available', info.version)
+                showDownloadUI()
                 
                 if(process.platform === 'darwin'){
-                    info.darwindownload = `https://github.com/dscalzi/HeliosLauncher/releases/download/v${info.version}/Helios-Launcher-setup-${info.version}${process.arch === 'arm64' ? '-arm64' : '-x64'}.dmg`
+                    info.darwindownload = `https://github.com/NhSoul/Launcher/releases/download/v${info.version}/NhSoul-Launcher-setup-${info.version}${process.arch === 'arm64' ? '-arm64' : '-x64'}.dmg`
                     showUpdateUI(info)
                 }
                 
@@ -57,6 +58,7 @@ if(!isDev){
                 break
             case 'update-downloaded':
                 loggerAutoUpdater.info('Update ' + info.version + ' ready to be installed.')
+                showOverlayUI()
                 settingsUpdateButtonStatus(Lang.queryJS('uicore.autoUpdate.installNowButton'), false, () => {
                     if(!isDev){
                         ipcRenderer.send('autoUpdateAction', 'installUpdateNow')
@@ -212,3 +214,38 @@ document.addEventListener('keydown', function (e) {
         window.toggleDevTools()
     }
 })
+
+function showDownloadUI(){
+
+    setTimeout(() => {
+        document.getElementById('frameBar').style.backgroundColor = 'rgba(0, 0, 0, 0.5)'
+        document.body.style.backgroundImage = `url('assets/images/backgrounds/${document.body.getAttribute('bkid')}.jpg')`
+        $('#main').show()
+
+        currentView = VIEWS.download
+        $(VIEWS.download).fadeIn(1000)
+
+
+
+        setTimeout(() => {
+            $('#loadingContainer').fadeOut(500, () => {
+                $('#loadSpinnerImage').removeClass('rotating')
+            })
+        }, 250)
+
+    }, 750)
+
+}
+
+function showOverlayUI(){
+    setOverlayContent('Veuillez installer la mise a jour.', '', 'Installer')
+    setOverlayHandler(() => {
+        if(!isDev){
+            ipcRenderer.send('autoUpdateAction', 'installUpdateNow')
+        } else {
+            console.error('Cannot install updates in development environment.')
+            toggleOverlay(false)
+        }
+    })
+    toggleOverlay(true)
+}
