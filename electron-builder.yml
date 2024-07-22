@@ -1,5 +1,5 @@
 appId: 'nhsoul-launcher'
-productName: 'NhSoul'
+productName: 'NhSoul Launcher'
 artifactName: '${productName}-setup-${version}.${ext}'
 
 copyright: 'Copyright © 2018-2024 NhPro'
