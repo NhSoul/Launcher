@@ -12,14 +12,14 @@ const loginCancelButtonCracked     = document.getElementById('loginCancelButtonC
 const loginEmailErrorCracked       = document.getElementById('loginEmailErrorCracked')
 const loginUsernameCracked         = document.getElementById('loginUsernameCracked')
 const loginPasswordErrorCracked    = document.getElementById('loginPasswordErrorCracked')
-const loginPasswordCracked         = document.getElementById('loginPasswordCracked')
-const checkmarkContainerCracked    = document.getElementById('checkmarkContainerCracked')
-const loginRememberOptionCracked   = document.getElementById('loginRememberOptionCracked')
+/*const loginPasswordCracked         = document.getElementById('loginPasswordCracked')*/
+/*const checkmarkContainerCracked    = document.getElementById('checkmarkContainerCracked')*/
+/*const loginRememberOptionCracked   = document.getElementById('loginRememberOptionCracked')*/
 const loginButtonCracked           = document.getElementById('loginButtonCracked')
 const loginFormCracked             = document.getElementById('loginFormCracked')
 
 // Control variables.
-let luCracked = false, lpCracked = false
+let luCracked = false, lpCracked = true
 
 
 /**
@@ -95,18 +95,18 @@ loginUsernameCracked.addEventListener('focusout', (e) => {
     validateEmailCracked(e.target.value)
     shakeErrorCracked(loginEmailErrorCracked)
 })
-loginPasswordCracked.addEventListener('focusout', (e) => {
+/*loginPasswordCracked.addEventListener('focusout', (e) => {
     validatePasswordCracked(e.target.value)
     shakeErrorCracked(loginPasswordErrorCracked)
-})
+})*/
 
 // Validate input for each field.
 loginUsernameCracked.addEventListener('input', (e) => {
     validateEmailCracked(e.target.value)
 })
-loginPasswordCracked.addEventListener('input', (e) => {
+/*loginPasswordCracked.addEventListener('input', (e) => {
     validatePasswordCracked(e.target.value)
-})
+})*/
 
 /**
  * Enable or disable the login button.
@@ -143,13 +143,13 @@ function formDisabledCracked(v){
     loginDisabledCracked(v)
     loginCancelButtonCracked.disabled = v
     loginUsernameCracked.disabled = v
-    loginPasswordCracked.disabled = v
-    if(v){
+    /*loginPasswordCracked.disabled = v*/
+    /*if(v){
         checkmarkContainerCracked.setAttribute('disabled', v)
     } else {
         checkmarkContainerCracked.removeAttribute('disabled')
-    }
-    loginRememberOptionCracked.disabled = v
+    }*/
+    /* .disabled = v*/
 }
 
 let loginViewOnSuccessCracked = VIEWS.landing
@@ -167,7 +167,7 @@ function loginCancelEnabledCracked(val){
 loginCancelButtonCracked.onclick = (e) => {
     switchView(getCurrentView(), loginViewOnCancelCracked, 500, 500, () => {
         loginUsernameCracked.value = ''
-        loginPasswordCracked.value = ''
+        /*loginPasswordCracked.value = ''*/
         loginCancelEnabledCracked(false)
         if(loginViewCancelHandlerCracked != null){
             loginViewCancelHandlerCracked()
@@ -187,7 +187,7 @@ loginButtonCracked.addEventListener('click', () => {
     // Show loading stuff.
     loginLoadingCracked(true)
 
-    AuthManager.addCrackedAccount(loginUsernameCracked.value, loginPasswordCracked.value).then((value) => {
+    AuthManager.addCrackedAccount(loginUsernameCracked.value, 'HEHEHEHA').then((value) => {
         updateSelectedAccount(value)
         loginButtonCracked.innerHTML = loginButtonCracked.innerHTML.replace(Lang.queryJS('loginCracked.loggingIn'), Lang.queryJS('loginCracked.success'))
         $('.circle-loader').toggleClass('load-complete')
@@ -202,7 +202,7 @@ loginButtonCracked.addEventListener('click', () => {
                 loginCancelEnabledCracked(false) // Reset this for good measure.
                 loginViewCancelHandlerCracked = null // Reset this for good measure.
                 loginUsernameCracked.value = ''
-                loginPasswordCracked.value = ''
+                /*loginPasswordCracked.value = ''*/
                 $('.circle-loader').toggleClass('load-complete')
                 $('.checkmark').toggle()
                 loginLoadingCracked(false)

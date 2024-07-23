@@ -388,17 +388,6 @@ body, button {
     background: rgba(0, 0, 0, 0.50);
 }
 
-#loginCrackedContainer {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-    width: 100%;
-    transition: filter 0.25s ease;
-    background: rgba(0, 0, 0, 0.50);
-}
-
 /* Login cancel button styles. */
 #loginCancelContainer {
     position: absolute;
@@ -407,7 +396,7 @@ body, button {
 }
 
 /* Login Cracked cancel button styles. */
-#loginCancelContainer {
+#loginCancelContainerCracked {
     position: absolute;
     top: 5%;
     right: 5%;
@@ -546,7 +535,7 @@ body, button {
     align-items: center;
 }
 
-/* Login form anchor styles. */
+/* Login Cracked form anchor styles. */
 #loginFormCracked a {
     font-size: 12px;
     color: #848484;
@@ -621,15 +610,15 @@ body, button {
     10%, 90% {
         transform: translate3d(-1px, 0, 0);
     }
-    
+
     20%, 80% {
         transform: translate3d(2px, 0, 0);
     }
-  
+
     30%, 50%, 70% {
         transform: translate3d(-4px, 0, 0);
     }
-  
+
     40%, 60% {
         transform: translate3d(4px, 0, 0);
     }
@@ -716,37 +705,6 @@ body, button {
     color: #c7c7c7;
     text-shadow:  0px 0px 20px #c7c7c7;
 }
-
-/* Login Cracked button styles. */
-#loginButtonCracked {
-    background: none;
-    font-weight: bold;
-    letter-spacing: 2px;
-    border: none;
-    padding: 15px 5px;
-    margin: 10px 0px;
-    cursor: pointer;
-    position: relative;
-    right: -20px;
-    transition: 0.5s ease;
-}
-#loginButtonCracked:disabled {
-    color: rgba(255, 255, 255, 0.75);
-    pointer-events: none;
-}
-#loginButtonCracked[loading] {
-    color: #fff;
-}
-#loginButtonCracked:hover,
-#loginButtonCracked:focus {
-    text-shadow: 0px 0px 20px #fff;
-    outline: none;
-}
-#loginButtonCracked:active {
-    color: #c7c7c7;
-    text-shadow:  0px 0px 20px #c7c7c7;
-}
-
 #loginSVG {
     -webkit-transform: translate3d(0, 0, 0);
     overflow: visible;
@@ -784,6 +742,44 @@ body, button {
     display: initial;
 }
 
+/* Login Cracked button styles. */
+#loginButtonCracked {
+    background: none;
+    font-weight: bold;
+    letter-spacing: 2px;
+    border: none;
+    padding: 15px 5px;
+    margin: 10px 0px;
+    cursor: pointer;
+    position: relative;
+    right: -20px;
+    transition: 0.5s ease;
+}
+#loginButtonCracked:disabled {
+    color: rgba(255, 255, 255, 0.75);
+    pointer-events: none;
+}
+#loginButtonCracked[loading] {
+    color: #fff;
+}
+#loginButtonCracked:hover,
+#loginButtonCracked:focus {
+    text-shadow: 0px 0px 20px #fff;
+    outline: none;
+}
+#loginButtonCracked:active {
+    color: #c7c7c7;
+    text-shadow:  0px 0px 20px #c7c7c7;
+}
+/*#loginSVG {
+    -webkit-transform: translate3d(0, 0, 0);
+    overflow: visible;
+    transform: rotate(90deg);
+    margin-left: 20px;
+    transition: 0.25s ease;
+    width: 20px;
+    height: 20px;
+}*/
 #loginButtonCracked:hover #loginSVG,
 #loginButtonCracked:focus #loginSVG {
     -webkit-filter: drop-shadow(0px 0px 2px #fff);
@@ -797,6 +793,11 @@ body, button {
 #loginButtonCracked:disabled #loginSVG .arrowLine {
     stroke: rgba(255, 255, 255, 0.75);
 }
+
+/*#loginButtonContent {
+    display: flex;
+    align-items: center;
+}*/
 
 #loginButtonCracked .circle-loader,
 #loginButtonCracked[loading] #loginSVG {
@@ -940,7 +941,14 @@ body, button {
     -webkit-user-select: none;
 }
 
-/* Checkbox Cracked container. */
+/* Hide the default checkbox. */
+#checkmarkContainer input {
+    opacity: 0;
+    cursor: pointer;
+    position: absolute;
+}
+
+/* Checkbox container. Cracked*/
 #checkmarkContainerCracked {
     display: flex;
     justify-content: flex-end;
@@ -951,14 +959,7 @@ body, button {
     -webkit-user-select: none;
 }
 
-/* Hide the default checkbox. */
-#checkmarkContainer input {
-    opacity: 0;
-    cursor: pointer;
-    position: absolute;
-}
-
-/* Hide the default checkbox. */
+/* Hide the default checkbox. Cracked*/
 #checkmarkContainerCracked input {
     opacity: 0;
     cursor: pointer;
@@ -989,22 +990,6 @@ body, button {
 #checkmarkContainer[disabled] {
     pointer-events: none;
 }
-
-/* On hover and focus, add a grey border color. Cracked*/
-#checkmarkContainerCracked:hover input ~ *,
-#checkmarkContainerCracked input:focus ~ * {
-    color: #a2a2a2;
-    border-color: #a2a2a2;
-}
-/* On keydown, darken the checkbox a bit. Cracked*/
-#checkmarkContainerCracked input:active ~ *:not(#loginRememberText) {
-    color: #8d8d8d;
-    border-color: #8d8d8d;
-}
-#checkmarkContainerCracked[disabled] {
-    pointer-events: none;
-}
-
 /* For checked -> #checkmarkContainer input:checked ~ * */
 /* Create the checkmark/indicator (hidden when not checked). */
 .loginCheckmark:after {
@@ -1027,6 +1012,26 @@ body, button {
     transform: rotate(45deg);
 }
 
+/* On hover and focus, add a grey border color. Cracked*/
+#checkmarkContainerCracked:hover input ~ *,
+#checkmarkContainerCracked input:focus ~ * {
+    color: #a2a2a2;
+    border-color: #a2a2a2;
+}
+/* On keydown, darken the checkbox a bit. Cracked*/
+#checkmarkContainerCracked input:active ~ *:not(#loginRememberText) {
+    color: #8d8d8d;
+    border-color: #8d8d8d;
+}
+#checkmarkContainerCracked[disabled] {
+    pointer-events: none;
+}
+/* For checked -> #checkmarkContainer input:checked ~ * Cracked*/
+/* Create the checkmark/indicator (hidden when not checked). */
+.loginCheckmarkCracked:after {
+    content: "";
+    display: none;
+}
 /* Show the checkmark when checked. Cracked*/
 #checkmarkContainerCracked input:checked ~ .loginCheckmark:after {
     display: block;
@@ -1119,19 +1124,19 @@ body, button {
 
 @keyframes rotateBefore {
     from {
-      transform: rotateX(60deg) rotateY(45deg) rotateZ(0deg);
+        transform: rotateX(60deg) rotateY(45deg) rotateZ(0deg);
     }
     to {
-      transform: rotateX(60deg) rotateY(45deg) rotateZ(-360deg);
+        transform: rotateX(60deg) rotateY(45deg) rotateZ(-360deg);
     }
 }
 
 @keyframes rotateAfter {
     from {
-      transform: rotateX(240deg) rotateY(45deg) rotateZ(0deg);
+        transform: rotateX(240deg) rotateY(45deg) rotateZ(0deg);
     }
     to {
-      transform: rotateX(240deg) rotateY(45deg) rotateZ(360deg);
+        transform: rotateX(240deg) rotateY(45deg) rotateZ(360deg);
     }
 }
 
@@ -3609,7 +3614,7 @@ input:checked + .toggleSwitchSlider:before {
     top: 25px;
     display: none;
 }
- 
+
 /* Left side of launch details container, displays percentage and a divider. */
 #launch_details_left {
     display: flex;
@@ -4092,28 +4097,6 @@ input:checked + .toggleSwitchSlider:before {
  * Loading Element (app.ejs)                                                   *
  *                                                                             *
  ******************************************************************************/
-
-/* Download container, placed above everything. */
-#downloadContainer {
-    position: absolute;
-    z-index: 400;
-    display: flex;
-    align-items: flex-start;
-    justify-content: center;
-    width: 100%;
-    height: calc(100% - 22px);
-}
-
-/* Download text container, placed above everything. */
-#textdownloadContainer {
-    position: absolute;
-    z-index: 400;
-    display: flex;
-    align-items: flex-end;
-    justify-content: center;
-    width: 100%;
-    height: calc(100% - 22px);
-}
 
 /* Loading container, placed above everything. */
 #loadingContainer {
