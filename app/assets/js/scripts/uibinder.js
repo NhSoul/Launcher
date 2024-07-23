@@ -21,7 +21,8 @@ const VIEWS = {
     loginCracked: '#loginCrackedContainer',
     settings: '#settingsContainer',
     welcome: '#welcomeContainer',
-    waiting: '#waitingContainer'
+    waiting: '#waitingContainer',
+    download: '#downloadContainer'
 }
 
 // The currently shown view container.

@@ -48,12 +48,12 @@ if(!isDev){
             case 'update-available':
                 loggerAutoUpdater.info('New update available', info.version)
                 showDownloadUI()
-                
+
                 if(process.platform === 'darwin'){
                     info.darwindownload = `https://github.com/NhSoul/Launcher/releases/download/v${info.version}/NhSoul-Launcher-setup-${info.version}${process.arch === 'arm64' ? '-arm64' : '-x64'}.dmg`
                     showUpdateUI(info)
                 }
-                
+
                 populateSettingsUpdateInformation(info)
                 break
             case 'update-downloaded':
@@ -100,7 +100,7 @@ if(!isDev){
  * allowPrerelease. If we are running a prerelease version, then
  * this will always be set to true, regardless of the current value
  * of val.
- * 
+ *
  * @param {boolean} val The new allow prerelease value.
  */
 function changeAllowPrerelease(val){
@@ -190,7 +190,7 @@ document.addEventListener('readystatechange', function () {
         document.getElementById('launch_progress').style.width = 170.8
         document.getElementById('launch_details_right').style.maxWidth = 170.8
         document.getElementById('launch_progress_label').style.width = 53.21
-        
+
     }
 
 }, false)
@@ -206,7 +206,7 @@ $(document).on('click', 'a[href^="http"]', function(event) {
 /**
  * Opens DevTools window if you hold (ctrl + shift + i).
  * This will crash the program if you are using multiple
- * DevTools, for example the chrome debugger in VS Code. 
+ * DevTools, for example the chrome debugger in VS Code.
  */
 document.addEventListener('keydown', function (e) {
     if((e.key === 'I' || e.key === 'i') && e.ctrlKey && e.shiftKey){
@@ -216,14 +216,15 @@ document.addEventListener('keydown', function (e) {
 })
 
 function showDownloadUI(){
-
     setTimeout(() => {
         document.getElementById('frameBar').style.backgroundColor = 'rgba(0, 0, 0, 0.5)'
         document.body.style.backgroundImage = `url('assets/images/backgrounds/${document.body.getAttribute('bkid')}.jpg')`
         $('#main').show()
+        switchView(getCurrentView(), VIEWS.download, 500, 500)
 
-        currentView = VIEWS.download
-        $(VIEWS.download).fadeIn(1000)
+
+        /*currentView = VIEWS.download
+        $(VIEWS.download).fadeIn(1000)*/
 
 
 
@@ -247,5 +248,8 @@ function showOverlayUI(){
             toggleOverlay(false)
         }
     })
-    toggleOverlay(true)
+    setDismissHandler(() => {
+        toggleOverlay(false)
+    })
+    toggleOverlay(true, false)
 }

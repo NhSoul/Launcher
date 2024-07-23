@@ -4109,6 +4109,27 @@ input:checked + .toggleSwitchSlider:before {
     height: calc(100% - 22px);
 }
 
+#downloadContainer {
+    position: absolute;
+    z-index: 400;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    width: 100%;
+    height: calc(100% - 22px);
+}
+
+/* Download text container, placed above everything. */
+#textdownloadContainer {
+    position: absolute;
+    z-index: 400;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    width: 100%;
+    height: calc(100% - 22px);
+}
+
 /* Loading content container. */
 #loadingContent {
     position: relative;

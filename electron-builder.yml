@@ -1,6 +1,6 @@
 appId: 'nhsoul-launcher'
 productName: 'NhSoul Launcher'
-artifactName: '${productName}-setup-${version}.${ext}'
+artifactName: 'NhSoul-Launcher-setup-${version}.${ext}'
 
 copyright: 'Copyright © 2018-2024 NhPro'
 
@@ -33,7 +33,7 @@ mac:
       arch:
         - 'x64'
         - 'arm64'
-  artifactName: '${productName}-setup-${version}-${arch}.${ext}'
+  artifactName: 'NhSoul-Launcher-setup-${version}-${arch}.${ext}'
   category: 'public.app-category.games'
 
 # Linux Configuration
